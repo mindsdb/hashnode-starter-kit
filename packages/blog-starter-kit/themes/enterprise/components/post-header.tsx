@@ -74,13 +74,17 @@ export const PostHeader = ({ title, coverImage, date, author, readTimeInMinutes 
 							className="ml-2 text-left font-semibold text-slate-600 hover:underline dark:text-white"
 						>
 							<span>{post.author.name}</span>
-							{post.coAuthors && (
+							{authorsArray.map(
+								(coAuthor, index) =>
+									index > 0 && <span key={coAuthor.id?.toString()}>, {coAuthor.name}</span>,
+							)}
+							{/* {post.coAuthors && (
 								<span className="font-normal">
 									{' '}
 									<br className="block sm:hidden" />
 									with {post.coAuthors.length} co-author{post.coAuthors.length === 1 ? '' : 's'}
 								</span>
-							)}
+							)} */}
 						</button>
 					)}
 				</div>

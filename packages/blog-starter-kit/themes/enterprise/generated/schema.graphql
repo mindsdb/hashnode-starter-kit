@@ -639,6 +639,8 @@ type Mutation {
     """Information about the post to be published."""
     input: PublishPostInput!
   ): PublishPostPayload!
+  """Removes a post."""
+  removePost(input: RemovePostInput!): RemovePostPayload!
   """Reschedule a post."""
   reschedulePost(input: ReschedulePostInput!): ScheduledPostPayload
   subscribeToNewsletter(input: SubscribeToNewsletterInput!): SubscribeToNewsletterPayload!
@@ -1430,6 +1432,8 @@ type PublicationIntegrations {
   fathomSiteID: String
   """FB Pixel ID for integration with Facebook Pixel."""
   fbPixelID: String
+  """Google Tag Manager ID for integration with Google Tag Manager."""
+  gTagManagerID: String
   """Google Analytics Tracking ID for integration with Google Analytics."""
   gaTrackingID: String
   """Hotjar Site ID for integration with Hotjar."""
@@ -1760,6 +1764,16 @@ type RedirectionRule {
   source: String!
   """The type of the redirection rule."""
   type: HttpRedirectionType!
+}
+
+input RemovePostInput {
+  """The ID of the post to remove."""
+  id: ID!
+}
+
+type RemovePostPayload {
+  """The deleted post."""
+  post: Post
 }
 
 """

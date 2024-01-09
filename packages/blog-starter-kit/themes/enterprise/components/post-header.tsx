@@ -1,5 +1,5 @@
 import { resizeImage } from '@starter-kit/utils/image';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { twJoin } from 'tailwind-merge';
 import { PostFullFragment, User } from '../generated/graphql';
 import CoAuthorsModal from './co-authors-modal';
@@ -25,10 +25,6 @@ export const PostHeader = ({ title, coverImage, date, author, readTimeInMinutes 
 	const post = _post as unknown as PostFullFragment;
 	const authorsArray = [post.author, ...(post.coAuthors || [])];
 	const [isCoAuthorModalVisible, setIsCoAuthorModalVisible] = useState(false);
-	useEffect(() => {
-		console.log('authorsArray', authorsArray);
-		console.log('mergedd');
-	}, []);
 
 	const closeCoAuthorModal = () => {
 		setIsCoAuthorModalVisible(false);
@@ -56,7 +52,6 @@ export const PostHeader = ({ title, coverImage, date, author, readTimeInMinutes 
 							<ProfileImage user={coAuthor} width="200" height="200" hoverDisabled={true} />
 						</div>
 					))}
-					<span className=" hidden">This is hidden</span>
 					{post.coAuthors && post.coAuthors.length > 0 && (
 						<button
 							onClick={openCoAuthorModal}

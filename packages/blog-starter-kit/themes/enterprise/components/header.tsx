@@ -16,7 +16,7 @@ import {
 	CaseStudiesSVG,
 	CommunitySVG,
 	ContactSVG,
-	ContributeSVG,
+  ContributeSVG,
 	CustomChatbotsSVG,
 	DocsNavSVG,
 	EnterpriseSVG,

@@ -8,17 +8,7 @@ const isProd = process.env.NEXT_PUBLIC_MODE === 'production';
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_URL || '';
 
 export const Analytics = () => {
-	const { publication, post } = useAppContext();
-
-	useEffect(() => {
-		if (!isProd) return;
-
-		_sendPageViewsToHashnodeGoogleAnalytics();
-		_sendViewsToHashnodeInternalAnalytics();
-		_sendViewsToHashnodeAnalyticsDashboard();
-	}, []);
-
-	if (!isProd) return null;
+	const { publication, post, series, page } = useAppContext();
 
 	const _sendPageViewsToHashnodeGoogleAnalytics = () => {
 		// @ts-ignore
@@ -178,14 +168,14 @@ export const Analytics = () => {
 		let hasSentBeacon = false;
 		try {
 			if (navigator.sendBeacon) {
-				hasSentBeacon = navigator.sendBeacon(`${BASE_PATH}/api/analytics`, blob);
+				hasSentBeacon = navigator.sendBeacon(`/api/analytics`, blob);
 			}
 		} catch (error) {
 			// do nothing; in case there is an error we fall back to fetch
 		}
 
 		if (!hasSentBeacon) {
-			fetch(`${BASE_PATH}/api/analytics`, {
+			fetch(`/api/analytics`, {
 				method: 'POST',
 				body: blob,
 				credentials: 'omit',

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class NewsRoomSVG extends React.Component {
+export default class NewsroomSVG extends React.Component {
 	render() {
 		return (
 			<svg

@@ -24,7 +24,6 @@ import CaseStudiesSVG from './NavbarIcons/CaseStudiesSVG';
 import ContactsSVG from './NavbarIcons/ContactSVG';
 import EventsSVG from './NavbarIcons/EventsSVG';
 import NewsroomSVG from './NavbarIcons/NewsroomSVG';
-
 import NewsletterPlusSVG from './NewsletterPlusSVG';
 import PlusCircleSVG from './PlusCircleSVG';
 import RssSVG from './RssSVG';
@@ -50,8 +49,8 @@ export {
 	LinkedinSVG,
 	MindsCloudSVG,
 	MindsdbLogoSVG,
-	NewsletterPlusSVG,
 	NewsroomSVG,
+	NewsletterPlusSVG,
 	PlusCircleSVG,
 	RssSVG,
 	SlackWhiteNavSGV,

@@ -37,15 +37,21 @@ const NavItem = ({
 	icon: Icon,
 	url,
 	cta,
+	newTab,
 }: {
 	title: string;
 	description: string;
 	icon: React.ReactNode;
 	url: string;
 	cta?: string;
+	newTab?: boolean;
 }) => {
 	return (
-		<a href={url} className=" flex flex-row gap-3 rounded-md  px-4 py-3 hover:bg-green-50 ">
+		<a
+			href={url}
+			className=" flex flex-row gap-3 rounded-md  px-4 py-3 hover:bg-green-50 "
+			target={newTab ? '_blank' : '_self'}
+		>
 			<div>{Icon}</div>
 			<span>
 				<p>{title}</p>
@@ -118,11 +124,12 @@ const opensourceNav = [
 		description: 'Chat with experts on Slack',
 		href: 'https://mindsdb.com/joincommunity',
 		Icon: <SupportSVG />,
+		newTab: true,
 	},
 	{
 		name: 'GitHub',
 		description: 'Get code, contribute, flag issues',
-		href: 'https://docs.mindsdb.com/what-is-mindsdb',
+		href: 'https://github.com/mindsdb/mindsdb',
 		Icon: <GitHubNavBarSVG />,
 	},
 	{
@@ -162,6 +169,7 @@ const OpenSourcePopover = () => {
 									description={item.description}
 									icon={item.Icon}
 									url={item.href}
+									newTab={item?.newTab}
 								/>
 							))}
 						</div>
@@ -370,7 +378,7 @@ export const Header = () => {
 						<Popover.Group className="hidden lg:flex lg:gap-x-7">
 							<Link
 								className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-white"
-								href="https://docs.mindsdb.com/what-is-mindsdb"
+								href="http://docs.mindsdb.com/"
 							>
 								Docs
 							</Link>
@@ -488,6 +496,7 @@ export const Header = () => {
 															description={item.description}
 															icon={item.Icon}
 															url={item.href}
+															newTab={item.newTab}
 														/>
 													))}
 												</Disclosure.Panel>

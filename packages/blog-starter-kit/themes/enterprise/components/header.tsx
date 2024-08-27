@@ -18,6 +18,7 @@ import {
 	ContactsSVG,
 	EventsSVG,
 	GitHubNavBarSVG,
+	GiudeSVG,
 	IntegrationsSVG,
 	MindsCloudSVG,
 	MindsdbLogoSVG,
@@ -70,6 +71,7 @@ const mindsCloudList = [
 		href: 'https://mdb.ai/',
 		Icon: <MindsCloudSVG />,
 		cta: 'Try now →',
+		newTab: true,
 	},
 ];
 const MindsCloudPopover = () => {
@@ -102,6 +104,7 @@ const MindsCloudPopover = () => {
 									icon={item.Icon}
 									url={item.href}
 									cta={item.cta}
+									newTab={item?.newTab}
 								/>
 							))}
 						</div>
@@ -118,6 +121,7 @@ const opensourceNav = [
 		description: 'AI models, data sources, applications',
 		href: 'https://docs.mindsdb.com/integrations/integrations',
 		Icon: <IntegrationsSVG />,
+		newTab: true,
 	},
 	{
 		name: 'Support',
@@ -131,6 +135,7 @@ const opensourceNav = [
 		description: 'Get code, contribute, flag issues',
 		href: 'https://github.com/mindsdb/mindsdb',
 		Icon: <GitHubNavBarSVG />,
+		newTab: true,
 	},
 	{
 		name: 'Community',
@@ -182,18 +187,35 @@ const OpenSourcePopover = () => {
 
 const connectList = [
 	{
-		name: 'Connect with an Expert',
-		description: "Let's explore AI together and solve your most pressing business challenges.",
+		name: 'Enterprise Offerings',
+		description:
+			'Fully featured, fully supported, fully on prem. Explore how custom AI can benefit your business.',
 		href: 'https://mindsdb.com/enterprise',
 		Icon: <ConnectSVG />,
 		cta: 'Learn more →',
+	},
+	{
+		name: "CTO's Guide to AI Agents",
+		description:
+			'Deep dive into the world of AI agents, covering everything from fundamental concepts to advanced applications.',
+		href: 'https://mindsdb.com/the-cto-guide-to-buiding-ai-agents',
+		Icon: <GiudeSVG />,
+		cta: 'Download Now →',
+	},
+	{
+		name: "CTO's Guide to RAG",
+		description:
+			'Read more about how RAG works, and why this new approach to retrieving data makes a chatbot’s answers more accurate, relevant, and secure.',
+		href: 'https://mindsdb.com/mindsdb-the-ctos-guide-to-rag-guide',
+		Icon: <GiudeSVG />,
+		cta: 'Download Now →',
 	},
 ];
 const ConnectPopover = () => {
 	return (
 		<Popover className="relative">
 			<Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-white">
-				Connect with an Expert
+				Enterprise
 				<ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
 			</Popover.Button>
 
@@ -379,6 +401,7 @@ export const Header = () => {
 							<Link
 								className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-white"
 								href="http://docs.mindsdb.com/"
+								target="_blank"
 							>
 								Docs
 							</Link>
@@ -510,6 +533,7 @@ export const Header = () => {
 												<Link
 													className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
 													href="https://docs.mindsdb.com/what-is-mindsdb"
+													target="_blank"
 												>
 													Docs
 												</Link>

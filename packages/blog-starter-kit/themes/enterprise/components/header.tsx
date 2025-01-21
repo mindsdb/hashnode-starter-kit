@@ -87,8 +87,8 @@ const mindsCloudList = [
 		Icon: <AboutUsSVG />,
 		links: [
 			{
-				cta: 'Github →',
-				link: 'https://github.com/mindsdb/mindsdb',
+				cta: 'Learn more →',
+				link: 'https://mindsdb.com/mindsdb',
 			},
 			{
 				cta: 'Docs →',
@@ -436,7 +436,7 @@ export const Header = () => {
 				<div className=" col-span-2 flex w-full flex-1 flex-row items-center justify-between gap-2 lg:col-span-1">
 					<h1>
 						<Link
-							href={'/'}
+							href={'https://mindsdb.com/'}
 							aria-label={`${publication.title} blog home page`}
 							className="flex flex-row items-center gap-3"
 						>

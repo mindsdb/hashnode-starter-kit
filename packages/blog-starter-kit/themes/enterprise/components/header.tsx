@@ -64,7 +64,7 @@ const mindsCloudList = [
 	{
 		type: 'multiple',
 		name: 'Minds',
-		description: 'solution for building Enterprise-grade AI',
+		description: 'Turnkey solution for building Enterprise-grade AI',
 		href: '#',
 		Icon: <MindsCloudSVG />,
 		links: [

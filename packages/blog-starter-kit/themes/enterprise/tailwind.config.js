@@ -3,6 +3,7 @@ const colors = require('tailwindcss/colors');
 
 module.exports = {
 	content: ['./components/**/*.tsx', './pages/**/*.tsx'],
+	darkMode: 'class',
 	theme: {
 		extend: {
 			colors: {
@@ -11,21 +12,38 @@ module.exports = {
 				'accent-7': '#333',
 				success: '#0070f3',
 				cyan: '#79FFE1',
-				primary: {
-					default: '#00a587',
-					50: '#79FFE1',
-					100: '#00a587',
-					200: '#00a587',
-					300: '#00a587',
-					400: '#00a587',
-					500: '#00a587',
-					600: '#00a587',
-					700: '#00a587',
-					800: '#00a587',
-					900: '#002424',
-					950: '#00a587',
-				},
+				primary: colors.blue,
 			},
+			typography: () => ({
+				DEFAULT: {
+				  css: {
+					'div[data-node-type="callout"]': {
+					  display: 'flex',
+					  'justify-content': 'flex-start',
+					  'align-items': 'flex-start',
+					  'background-color': '#F8FAFC',
+					  border: '1px solid #E2E8F0',
+					  padding: ' 1rem 1.5rem',
+					  gap: '0.5rem',
+					  'border-radius': '0.5rem',
+					  margin: '1rem 0',
+					  'word-break': 'break-word',
+					},
+					'div[data-node-type="callout-emoji"]': {
+					  background: '#E2E8F0',
+					  'border-radius': '0.5rem',
+					  minWidth: '1.75rem',
+					  width: '1.75rem',
+					  height: '1.5rem',
+					  display: 'flex',
+					  'margin-top': '0.3rem',
+					  'justify-content': 'center',
+					  'align-items': 'center',
+					  'font-size': '1rem',
+					}
+				  },
+				}
+			}),
 			spacing: {
 				28: '7rem',
 			},

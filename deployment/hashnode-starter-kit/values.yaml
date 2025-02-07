@@ -47,10 +47,10 @@ deployment:
   resources:
     limits:
       cpu: 1
-      memory: 800Mi
+      memory: 400Mi
     requests:
       cpu: 100m
-      memory: 800Mi
+      memory: 400Mi
 
   # This is because for now we don't run as non-root
   # security:

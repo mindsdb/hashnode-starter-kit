@@ -28,6 +28,7 @@ import {
 	PostsByPublicationQueryVariables,
 	PublicationFragment,
 } from '../generated/graphql';
+import { DEFAULT_COVER } from '../utils/const';
 
 const SubscribeForm = dynamic(() =>
 	import('../components/subscribe-form').then((mod) => mod.SubscribeForm),
@@ -71,10 +72,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 			<SecondaryPost
 				key={post.id}
 				title={post.title}
-				coverImage={
-					post.coverImage?.url ||
-					'https://cdn.hashnode.com/res/hashnode/image/upload/v1683525272978/MB5H_kgOC.png?auto=format'
-				}
+				coverImage={post.coverImage?.url || DEFAULT_COVER}
 				date={post.publishedAt}
 				slug={post.slug}
 				excerpt={post.brief}
@@ -144,10 +142,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 							{firstPost && (
 								<HeroPost
 									title={firstPost.title}
-									coverImage={
-										firstPost.coverImage?.url ||
-										'https://cdn.hashnode.com/res/hashnode/image/upload/v1683525272978/MB5H_kgOC.png?auto=format'
-									}
+									coverImage={firstPost.coverImage?.url || DEFAULT_COVER}
 									date={firstPost.publishedAt}
 									slug={firstPost.slug}
 									excerpt={firstPost.brief}

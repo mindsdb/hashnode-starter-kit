@@ -1,5 +1,5 @@
 # Stage 1: Building the code
-FROM node:20 as builder
+FROM node:23.7.0 as builder
 
 WORKDIR /app
 
@@ -8,7 +8,7 @@ COPY package*.json ./
 COPY pnpm*.yaml ./
 
 # Install pre-install deps
-RUN npm install --global pnpm
+RUN npm install --global pnpm@9.9.0
 RUN pnpm install
 
 # Copy the code

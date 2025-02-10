@@ -1,24 +1,30 @@
-FROM node:18-alpine
+# Stage 1: Building the code
+FROM node:20 as builder
 
-COPY . /app
-
-# Set the working directory
 WORKDIR /app
 
-# Install pnpm
-RUN npm install -g pnpm
+# Copy package.json and package-lock.json (if available)
+COPY package*.json ./
+COPY pnpm*.yaml ./
 
-# By default, use the enterprise theme
-ARG THEME=enterprise
+# Install pre-install deps
+RUN npm install --global pnpm
+RUN pnpm install
 
-WORKDIR /app/packages/blog-starter-kit/themes/${THEME}
-RUN cp .env.example .env.local
-RUN pnpm install --frozen-lockfile
+# Copy the code
+COPY . /app
 
-RUN pnpm build
+# Set our env vars needed for building it for /blog
+ENV NEXT_PUBLIC_BASE_URL='/blog'
+ENV NEXT_PUBLIC_MODE='production'
 
-# Expose the port Next.js runs on
+RUN cd packages/blog-starter-kit/themes/enterprise && \
+    pnpm install
+
+RUN cd packages/blog-starter-kit/themes/enterprise && \
+    pnpm run build
+
 EXPOSE 3000
 
-# Run the Next.js start script
-CMD ["pnpm", "start"]
+ENTRYPOINT ["/bin/sh", "-c", "cd /app/packages/blog-starter-kit/themes/enterprise && /usr/local/bin/pnpm run start" ]
+# # RUN pnpm dev
